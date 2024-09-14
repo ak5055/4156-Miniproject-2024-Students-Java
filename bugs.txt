@@ -1,0 +1,37 @@
+﻿Author: Ajit Sharma Kasturi (ak5055)
+
+Bugs found:
+
+RouteController.java:
+
+1. STATIC CODE ANALYSIS BUG: UnusedLocalVariable rule for “requestedCourse” in findCourseTime method. Therefore, I realized that while printing, the author mistakenly written “some time” instead of using this requestedCourse variable.
+2. In retrieveDepartment method, the http statuses of NOT_FOUND and OK are swapped from their actual positions.
+3. In retrieveCourse method, the http status is set to forbidden if there is a course found which is incorrect. Changed this to status of OK fixed the issue.
+4. In getMajorCountFromDept method, the system incorrectly prints minus the count as the answer. Fixed this by removing the minus symbol.
+5. If getMajorCountFromDept method, if the department is not found, it returned incorrect http status of forbidden but it is not found HTTP status.
+6. (Improvement) In addMajorToDept method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+7. (Improvement) In removeMajorFromDept method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this. Also wrote two cases for improved logging, first if the majors is already 0, it cant decrease further, so added a log saying this already reached its minimum, otherwise I mentioned the value it is updated to.
+8. In dropStudent, the status code if the student resource is not found is written incorrectly as forbidden, so updated this to not found.
+9. (Improvement) In setEnrollmentCount method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+10. (Improvement) In changeCourseTime method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+11. (Improvement) In changeCourseTeacher method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+12. (Improvement) In changeCourseLocation method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+13. In handleException method, the http status should be INTERNAL_SERVER_ERROR but it is written incorrectly as OK. 
+
+Course.java:
+14. Incorrect instantiation of enrolledStudentCount in course constructor. We need to instantiate it to 0.
+15. enrollStudent method is incorrectly written. If the course is full we need to return false else we increment enrolledStudentCount and return true.
+16. dropStudent method has an incorrect return value. If the course is empty we need to return false else we decrement enrolledStudentCount and return true. 
+17. getCourseLocation method returns instructor name incorrectly. Fixed it.
+18. getInstructorName method returns course location incorrectly. Fixed it.
+19. isCourseFull method is incorrectly written, we need to check the students enrolled is equal to the capacity.
+
+Department.java:
+20. getNumberOfMajors method incorrectly returns negative of the actual value.
+21. getDepartmentChair method the literal string “this.departmentChair” instead of the function return value of this.departmentChair.
+22. dropPersonFromMajor method didnt handle corner case, if the total majors are 0, we shouldn’t decrement further.
+23. In toString method, deptCode information shouldn’t be inside the loop, it should be outside the loop to print once.
+24. In toString method, the return value incorrectly returns the literal string “result.toString()” instead of returning the output of result.toString().
+
+MyFileDatabase.java:
+25. STATIC CODE ANALYSIS BUG: ConstructorCallsOverridableMethod, the constructor of MyFileDatabase is calling overridable function deSerializeObjectFromFile method, to fix this fix the function as final.
