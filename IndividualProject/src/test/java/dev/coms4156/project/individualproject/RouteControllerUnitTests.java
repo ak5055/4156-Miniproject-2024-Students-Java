@@ -367,7 +367,9 @@ class RouteControllerUnitTests {
                 .param("deptCode", "COMS")
                 .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
-        .andExpect(content().string("Attribute was updated successfully"));
+        .andExpect(
+            content()
+                .string("The number of majors of the department is updated successfully to 2501."));
   }
 
   @Test
@@ -407,7 +409,31 @@ class RouteControllerUnitTests {
                 .param("deptCode", "COMS")
                 .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
-        .andExpect(content().string("Attribute was updated or is at minimum"));
+        .andExpect(content().string("The majors of the department is updated to the value 2499."));
+  }
+
+  @Test
+  void removeMajorFromDeptNoChangeTest() throws Exception {
+    Course testCourse = new Course("Gail Kaiser", "Zoom", "10:10-11:20", 120);
+    testCourse.setEnrolledStudentCount(119);
+
+    HashMap<String, Course> courses = new HashMap<>();
+    courses.put("123", testCourse);
+    Department testDept = new Department("COMS", courses, "Daniel Bauer", 0);
+    HashMap<String, Department> deptMapping = new HashMap<>();
+    deptMapping.put("COMS", testDept);
+
+    when(mockDb.getDepartmentMapping()).thenReturn(deptMapping);
+
+    mockMvc
+        .perform(
+            patch("/removeMajorFromDept")
+                .param("deptCode", "COMS")
+                .contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(
+            content()
+                .string("The majors of the department is already at minimum with the value 0."));
   }
 
   @Test
@@ -470,7 +496,7 @@ class RouteControllerUnitTests {
                 .param("deptCode", "COMS")
                 .param("courseCode", "123")
                 .contentType(MediaType.APPLICATION_JSON))
-        .andExpect(status().isBadRequest())
+        .andExpect(status().isNotFound())
         .andExpect(content().string("Student has not been dropped."));
   }
 
