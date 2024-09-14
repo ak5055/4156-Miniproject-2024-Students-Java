@@ -1,4 +1,4 @@
-# COMS 4156: Advanced Software Engineering Individual Assignment 1
+# COMS 4156: Advanced Software Engineering Individual Mini Project
 
 ## NAME: AJIT SHARMA KASTURI
 ## UNI: ak5055
