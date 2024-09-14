@@ -21,8 +21,8 @@ import org.springframework.test.context.ContextConfiguration;
 public class DepartmentUnitTests {
 
   /**
-   * Sets up a Department instance and its courses for testing purposes.
-   * This method is executed once before all tests.
+   * Sets up a Department instance and its courses for testing purposes. This method is executed
+   * once before all tests.
    */
   @BeforeAll
   public static void setupDeptForTesting() {
@@ -38,7 +38,11 @@ public class DepartmentUnitTests {
   @Order(1)
   public void toStringTest() {
     String expectedResult =
-        "CSEE c1: " + courses.get("c1").toString() + "\nc2: " + courses.get("c2").toString() + "\n";
+        "CSEE c1: "
+            + courses.get("c1").toString()
+            + "\nCSEE c2: "
+            + courses.get("c2").toString()
+            + "\n";
     assertEquals(expectedResult, testDept.toString());
   }
 

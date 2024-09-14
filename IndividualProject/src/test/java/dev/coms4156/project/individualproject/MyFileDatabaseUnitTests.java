@@ -88,12 +88,12 @@ public class MyFileDatabaseUnitTests {
         "For the COMS department: \n"
             + "COMS 1004: \n"
             + "Instructor: Adam Cannon; Location: 417 IAB; Time: 11:40-12:55\n"
-            + "3134: \n"
+            + "COMS 3134: \n"
             + "Instructor: Brian Borowski; Location: 301 URIS; Time: 4:10-5:25\n"
             + "For the ECON department: \n"
             + "ECON 1105: \n"
             + "Instructor: Waseem Noor; Location: 309 HAV; Time: 2:40-3:55\n"
-            + "2257: \n"
+            + "ECON 2257: \n"
             + "Instructor: Tamrat Gashaw; Location: 428 PUP; Time: 10:10-11:25\n",
         testFileDB.toString());
   }
