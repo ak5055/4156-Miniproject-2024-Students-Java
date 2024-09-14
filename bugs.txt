@@ -9,13 +9,13 @@ RouteController.java:
 3. In retrieveCourse method, the http status is set to forbidden if there is a course found which is incorrect. Changed this to status of OK fixed the issue.
 4. In getMajorCountFromDept method, the system incorrectly prints minus the count as the answer. Fixed this by removing the minus symbol.
 5. If getMajorCountFromDept method, if the department is not found, it returned incorrect http status of forbidden but it is not found HTTP status.
-6. (Improvement) In addMajorToDept method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
-7. (Improvement) In removeMajorFromDept method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this. Also wrote two cases for improved logging, first if the majors is already 0, it cant decrease further, so added a log saying this already reached its minimum, otherwise I mentioned the value it is updated to.
+6. (Improvement) In addMajorToDept method, the response string information is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+7. (Improvement) In removeMajorFromDept method, the response string information is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this. Also wrote two cases for improved logging, first if the majors is already 0, it cant decrease further, so added a log saying this already reached its minimum, otherwise I mentioned the value it is updated to.
 8. In dropStudent, the status code if the student resource is not found is written incorrectly as forbidden, so updated this to not found.
-9. (Improvement) In setEnrollmentCount method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
-10. (Improvement) In changeCourseTime method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
-11. (Improvement) In changeCourseTeacher method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
-12. (Improvement) In changeCourseLocation method, the logging by System.out.println is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+9. (Improvement) In setEnrollmentCount method, the response string information is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+10. (Improvement) In changeCourseTime method, the response string information is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+11. (Improvement) In changeCourseTeacher method, the response string information is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
+12. (Improvement) In changeCourseLocation method, the response string information is not good, it just says an attribute is updated but doesn’t mention the actual values, so fixed this.
 13. In handleException method, the http status should be INTERNAL_SERVER_ERROR but it is written incorrectly as OK. 
 
 Course.java:
