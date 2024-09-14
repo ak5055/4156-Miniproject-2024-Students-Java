@@ -1,0 +1,3 @@
+﻿https://site.mockito.org/ -> For mocking using java Mockito
+https://docs.spring.io/spring-boot/reference/testing/spring-boot-applications.html -> Testing spring boot
+https://pmd.github.io/ -> Pmd static bug finder

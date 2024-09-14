@@ -31,8 +31,7 @@ Department.java:
 21. getNumberOfMajors method incorrectly returns negative of the actual value.
 22. getDepartmentChair method the literal string “this.departmentChair” instead of the function return value of this.departmentChair.
 23. dropPersonFromMajor method didnt handle corner case, if the total majors are 0, we shouldn’t decrement further.
-24. In toString method, deptCode information shouldn’t be inside the loop, it should be outside the loop to print once.
-25. In toString method, the return value incorrectly returns the literal string “result.toString()” instead of returning the output of result.toString().
+24. In toString method, the return value incorrectly returns the literal string “result.toString()” instead of returning the output of result.toString().
 
 MyFileDatabase.java:
-26. STATIC CODE ANALYSIS BUG: ConstructorCallsOverridableMethod, the constructor of MyFileDatabase is calling overridable function deSerializeObjectFromFile method, to fix this fix the function as final.
+25. STATIC CODE ANALYSIS BUG: ConstructorCallsOverridableMethod, the constructor of MyFileDatabase is calling overridable function deSerializeObjectFromFile method, to fix this fix the function as final.
