@@ -22,3 +22,5 @@
 * I did around 97% of branch coverage while writing test cases.
 * I used Mockito as required while writing unit tests especially in cases we need to mimic the file database object.
 * I made sure all the testcases worked as expected (mvn test).
+* To see jacoco branch coverage, I ran "mvn jacoco:report" and found the html report at target/site/jacoco/index.html.
+* That showed me 97% in branch coverage.
